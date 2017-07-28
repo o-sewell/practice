@@ -7,10 +7,10 @@
 	<h2> Welcome blah blaah </h2>
 	<div id="ajax">
 	</div>
-	<button id="load" onclick="sendAjax()">bring it </button>
+	<button id="load" onclick="dude()">bring it </button>
 
 	<script>
-		var xhr = new XMLHttpRequest();
+		/*var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
 			if(xhr.readyState === 4) {
 				document.getElementById('ajax').innerHTML = xhr.responseText;
@@ -19,7 +19,27 @@
 		xhr.open('GET', 'about.html');
 		function sendAjax() {
 		xhr.send();
+		}*/
+		function getAbout() {
+			const page = "about.html";
+			return fetch(page)
+				.then(function(blob){
+					return blob.text()
+				})
+				.then(function(data){
+					return data
+				})
 		}
+
+		function dude() {
+			getAbout().then(aboutPage => {
+				console.log(aboutPage);
+				document.getElementById('ajax').innerHTML = aboutPage;
+			})
+		}
+
+
+		console.log('hey');
 	</script>
 </body>
 </html>
