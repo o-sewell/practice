@@ -1,0 +1,26 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Practice</title>
+</head>
+<body>
+	<h2> Welcome blah blaah </h2>
+	<div id="ajax">
+	</div>
+	<button id="load" onclick="sendAjax()">bring it </button>
+
+	<script>
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if(xhr.readystate === 4) {
+				document.getElementById('ajax').innerHTML = xhr.responseText;
+			}
+		}
+
+		xhr.open('GET', 'about.html');
+		function sendAjax() {
+		xhr.send();
+		}
+	</script>
+</body>
+</html>
