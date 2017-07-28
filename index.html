@@ -4,10 +4,13 @@
 	<title>Practice</title>
 </head>
 <body>
-	<h2> Welcome blah blaah </h2>
+	<h2> Welcome </h2>
+	<button id="load" onclick="about()"> About</button>
+	<button id="load" onclick="portfolio()">Portfolio</button>
+	<button id="load" onclick="contact()">Contact</button>
 	<div id="ajax">
 	</div>
-	<button id="load" onclick="dude()">bring it </button>
+	<p> footer </p>
 
 	<script>
 		/*var xhr = new XMLHttpRequest();
@@ -31,15 +34,48 @@
 				})
 		}
 
-		function dude() {
+		function about() {
 			getAbout().then(aboutPage => {
 				console.log(aboutPage);
 				document.getElementById('ajax').innerHTML = aboutPage;
 			})
 		}
 
+		function getPortfolio() {
+			const page = "portfolio.html";
+			return fetch(page)
+				.then(function(blob){
+					return blob.text()
+				})
+				.then(function(data){
+					return data
+				})
+		}
 
-		console.log('hey');
+		function portfolio() {
+			getPortfolio().then(portfolioPage => {
+				document.getElementById('ajax').innerHTML = portfolioPage;
+			})
+		}
+
+		function getContact() {
+			const page = "contact.html";
+			return fetch(page)
+				.then(function(blob){
+					return blob.text()
+				})
+				.then(function(data){
+					return data
+				})
+		}
+
+		function contact() {
+			getContact().then(contactPage => {
+				document.getElementById('ajax').innerHTML = contactPage;
+			})
+		}
+
+
 	</script>
 </body>
 </html>
